@@ -140,6 +140,24 @@ pub fn pyarrow_nested_nullable(column: usize) -> Box<dyn Array> {
             Some(b"".to_vec()),
         ])),
         7 | 8 | 9 => Arc::new(NullArray::from_data(DataType::Null, 1)),
+        10 => Arc::new(Utf8Array::<i32>::from([
+            Some("a1"),
+            Some("a2"),
+            None,
+            None,
+            Some(""),
+            None,
+            Some("a3"),
+            Some("a4"),
+            Some("a5"),
+            Some("a6"),
+            Some("a7"),
+            Some("a8"),
+            None,
+            None,
+            Some("a9"),
+            Some("a10"),
+        ])),
         _ => unreachable!(),
     };
 
@@ -224,6 +242,17 @@ pub fn pyarrow_nested_nullable(column: usize) -> Box<dyn Array> {
             a.try_extend(data).unwrap();
             let array: ListArray<i32> = a.into();
             Box::new(array)
+        }
+        10 => {
+            let data_type =
+                DataType::FixedSizeList(Box::new(Field::new("item", DataType::Int64, false)), 2);
+            Box::new(FixedSizeListArray::from_data(
+                data_type,
+                values,
+                Some(Bitmap::from([
+                    true, false, true, true, true, true, false, true,
+                ])),
+            ))
         }
         _ => unreachable!(),
     }

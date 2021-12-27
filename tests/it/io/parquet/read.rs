@@ -269,6 +269,16 @@ fn v2_nested_nested_required_required() -> Result<()> {
 }
 
 #[test]
+fn v1_fixed_size_list() -> Result<()> {
+    test_pyarrow_integration(10, 1, "nested", false, false, None)
+}
+
+#[test]
+fn v2_fixed_size_list() -> Result<()> {
+    test_pyarrow_integration(10, 2, "nested", false, false, None)
+}
+
+#[test]
 fn v1_decimal_9_nullable() -> Result<()> {
     test_pyarrow_integration(7, 1, "basic", false, false, None)
 }
