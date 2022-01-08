@@ -5,7 +5,7 @@ use arrow2::{
     array::{Array, Int32Array},
     chunk::Chunk,
     error::Result,
-    io::json::write,
+    io::ndjson::write,
 };
 
 fn write_batches(path: &str, names: Vec<String>, batches: &[Chunk<Arc<dyn Array>>]) -> Result<()> {

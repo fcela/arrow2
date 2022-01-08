@@ -8,8 +8,8 @@ use arrow2::array::*;
 use arrow2::chunk::Chunk;
 use arrow2::datatypes::*;
 use arrow2::error::Result;
-use arrow2::io::json::read as json_read;
-use arrow2::io::json::write as json_write;
+use arrow2::io::ndjson::read as json_read;
+use arrow2::io::ndjson::write as json_write;
 
 fn read_batch(data: String, fields: &[Field]) -> Result<Chunk<Arc<dyn Array>>> {
     let mut reader = Cursor::new(data);

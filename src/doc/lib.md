@@ -80,7 +80,7 @@ functionality, such as:
 * `io_ipc`: to interact with the Arrow IPC format
 * `io_ipc_compression`: to read and write compressed Arrow IPC (v2)
 * `io_csv` to read and write CSV
-* `io_json` to read and write JSON
+* `io_ndjson` to read and write JSON
 * `io_flight` to read and write to Arrow's Flight protocol
 * `io_parquet` to read and write parquet
 * `io_parquet_compression` to read and write compressed parquet

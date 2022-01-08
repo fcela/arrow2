@@ -2,7 +2,7 @@ use std::{io::Cursor, sync::Arc};
 
 use arrow2::array::*;
 use arrow2::datatypes::*;
-use arrow2::io::json::read;
+use arrow2::io::ndjson::read;
 use arrow2::{bitmap::Bitmap, buffer::Buffer, error::Result};
 
 use super::*;

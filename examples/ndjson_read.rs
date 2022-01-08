@@ -5,7 +5,7 @@ use std::sync::Arc;
 use arrow2::array::Array;
 use arrow2::chunk::Chunk;
 use arrow2::error::Result;
-use arrow2::io::json::read;
+use arrow2::io::ndjson::read;
 
 fn read_path(path: &str, projection: Option<Vec<&str>>) -> Result<Chunk<Arc<dyn Array>>> {
     // Example of reading a JSON file.
