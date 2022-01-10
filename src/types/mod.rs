@@ -1,4 +1,5 @@
 #![deny(missing_docs)]
+#![forbid(unsafe_code)]
 //! Sealed traits and implementations to handle all _physical types_ used in this crate.
 //!
 //! Most physical types used in this crate are native Rust types, such as `i32`.

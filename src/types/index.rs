@@ -1,7 +1,5 @@
 use std::convert::TryFrom;
 
-use crate::trusted_len::TrustedLen;
-
 use super::NativeType;
 
 /// Sealed trait describing the subset of [`NativeType`] (`i32`, `i64`, `u32` and `u64`)
@@ -114,6 +112,3 @@ impl<I: Index> Iterator for IndexRange<I> {
         (len, Some(len))
     }
 }
-
-/// Safety: a range is always of known length
-unsafe impl<I: Index> TrustedLen for IndexRange<I> {}

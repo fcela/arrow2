@@ -13,7 +13,7 @@ pub trait FromMaskChunk<T> {
 /// # Safety
 /// The `NativeType` and the `NativeSimd` must have possible a matching alignment.
 /// e.g. slicing `&[NativeType]` by `align_of<NativeSimd>()` must be properly aligned/safe.
-pub unsafe trait NativeSimd: Default + Copy {
+pub trait NativeSimd: Default + Copy + bytemuck::Pod {
     /// Number of lanes
     const LANES: usize;
     /// The [`NativeType`] of this struct. E.g. `f32` for a `NativeSimd = f32x16`.
